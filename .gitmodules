@@ -1,3 +1,6 @@
 [submodule "modules/wxWidgets"]
 	path = modules/wxWidgets
 	url = https://github.com/wxWidgets/wxWidgets.git
+[submodule "modules/DiligentCore"]
+	path = modules/DiligentCore
+	url = https://github.com/DiligentGraphics/DiligentCore.git
