@@ -1,6 +1,6 @@
 # wxSample
 
-Multiplatform renderer sample implementing DX12 on Windows and Nuklear on Linux using WxWidgets.
+Multiplatform renderer sample app implementing DX12 on Windows and Vulkan on Linux using WxWidgets.
 
 if using git:
 
