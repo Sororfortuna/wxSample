@@ -5,6 +5,22 @@ wxIMPLEMENT_APP(wxSampleApp);
 bool wxSampleApp::OnInit() {
     FrameMain *frame = new FrameMain();
     frame->Show(true);
+
+    #if PLATFORM_WIN32
+    Diligent::Win32NativeWindow Window{frame->GetHandle()};
+    if (m_DeviceType == Diligent::RENDER_DEVICE_TYPE_UNDEFINED)
+        #if D3D12_SUPPORTED
+        m_DeviceType = Diligent::RENDER_DEVICE_TYPE_D3D12;
+        #elif VULKAN_SUPPORTED
+        m_DeviceType = Diligent::RENDER_DEVICE_TYPE_VULKAN;
+        #endif
+    #endif
+    #if PLATFORM_LINUX
+    Diligent::LinuxNativeWindow Window;
+    //Window.WindowId = GetHandle()
+    //Window.pDisplay = GetX11Display();
+    #endif
+
     return true;
 }
  
