@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(wxSample VERSION 0.1.0)
+set(CMAKE_CXX_STANDARD 20)
 
 include(CTest)
 enable_testing()
@@ -13,7 +14,9 @@ target_link_libraries(wxSample wx::net wx::core wx::base Diligent-Common
                                                          Diligent-GraphicsEngineVk-static
                                                          )
 
-target_include_directories(wxSample PRIVATE ${CMAKE_SOURCE_DIR}/modules/DiligentCore/)
+target_include_directories(wxSample PRIVATE ${CMAKE_SOURCE_DIR}/modules/DiligentCore/ ${GTK3_INCLUDE_DIRS})
+
+target_precompile_headers(wxSample PRIVATE src/pch.hpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
