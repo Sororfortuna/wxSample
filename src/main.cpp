@@ -15,9 +15,10 @@ bool wxSampleApp::OnInit() {
         m_DeviceType = Diligent::RENDER_DEVICE_TYPE_D3D12;
 #elif VULKAN_SUPPORTED
         m_DeviceType = Diligent::RENDER_DEVICE_TYPE_VULKAN;
+#elif GL_SUPPORTED
+        m_DeviceType = Diligent::RENDER_DEVICE_TYPE_GL;
 #endif
-#endif
-#if PLATFORM_LINUX
+#elif PLATFORM_LINUX
     Diligent::LinuxNativeWindow Window;
     WXWidget Widget = frame->GetHandle();
     if (Widget) {
@@ -25,9 +26,17 @@ bool wxSampleApp::OnInit() {
         if (gdkWin != nullptr) {
             Window.pDisplay = GDK_WINDOW_XDISPLAY(gdkWin);
             Window.WindowId = GDK_WINDOW_XID(gdkWin);
+            // alert message with the window id
+            wxMessageBox(wxString::Format("Window id: %u", Window.WindowId));
         }
     }
+    if (m_DeviceType == Diligent::RENDER_DEVICE_TYPE_UNDEFINED)
+#if VULKAN_SUPPORTED
+        m_DeviceType = Diligent::RENDER_DEVICE_TYPE_VULKAN;
+#elif GL_SUPPORTED
+        m_DeviceType = Diligent::RENDER_DEVICE_TYPE_GL;
 #endif
+#endif // PLATFORM
 
     return true;
 }

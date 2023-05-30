@@ -1,8 +1,8 @@
 # wxSample
 
-Multiplatform renderer sample app implementing DX12 on Windows and Vulkan on Linux using WxWidgets.
+Multiplatform renderer sample app implementing GL on Windows and Linux using WxWidgets.
 
-if using git:
+if using git, make sure to pull submodules:
 
 ```console
 git submodule update --init --recursive

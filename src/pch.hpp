@@ -7,7 +7,9 @@
 
 #include <wx/wxprec.h>
 #include <wx/nativewin.h>
- 
+#include <wx/msgdlg.h>
+#include <wx/glcanvas.h>
+
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
 #endif
