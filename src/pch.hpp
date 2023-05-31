@@ -9,6 +9,7 @@
 #include <wx/nativewin.h>
 #include <wx/msgdlg.h>
 #include <wx/glcanvas.h>
+#include <GL/gl.h>
 
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
@@ -16,7 +17,7 @@
  
 /* Graphics API */
 
-#include "Graphics/GraphicsEngineVulkan/interface/EngineFactoryVk.h"
+#include "Graphics/GraphicsEngineOpenGL/interface/EngineFactoryOpenGL.h"
 #include "Graphics/GraphicsEngine/interface/RenderDevice.h"
 #include "Graphics/GraphicsEngine/interface/DeviceContext.h"
 #include "Graphics/GraphicsEngine/interface/SwapChain.h"

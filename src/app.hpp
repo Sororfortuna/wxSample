@@ -2,6 +2,9 @@
 
 #include "./pch.hpp"
 
+#include <gtk/gtk.h>
+#include <gdk/gdkx.h>
+
 class wxSampleApp : public wxApp {
 private:
     Diligent::RefCntAutoPtr<Diligent::IRenderDevice>  m_pDevice;           // Render device used to create all other graphics object
@@ -17,14 +20,14 @@ public:
     virtual bool OnInit();
 };
  
-class FrameMain : public wxFrame {
-public:
-    FrameMain();
- 
-private:
+class MainFrame : public wxFrame {
     void OnHello(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
+    void OnPaint(wxPaintEvent& event);
+    wxGLCanvas* m_canvas;
+public:
+    MainFrame();
 };
  
 enum {

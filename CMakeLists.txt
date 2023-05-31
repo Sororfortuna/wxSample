@@ -14,9 +14,7 @@ add_subdirectory(modules/wxWidgets)
 add_subdirectory(modules/DiligentCore)
 
 add_executable(wxSample src/main.cpp)
-target_link_libraries(wxSample wx::net wx::core wx::base Diligent-Common
-                                                         #Diligent-GraphicsEngineD3D12-static
-                                                         #Diligent-GraphicsEngineVk-static
+target_link_libraries(wxSample wx::net wx::core wx::base wx::gl Diligent-Common
                                                          Diligent-GraphicsEngineOpenGL-static
                                                          )
 
