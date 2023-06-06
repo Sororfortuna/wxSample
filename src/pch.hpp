@@ -3,13 +3,14 @@
 
 /* Standard Library */
 
+#include <iostream>
+
 /* Window */
 
 #include <wx/wxprec.h>
 #include <wx/nativewin.h>
 #include <wx/msgdlg.h>
 #include <wx/glcanvas.h>
-#include <GL/gl.h>
 
 #ifndef WX_PRECOMP
     #include <wx/wx.h>

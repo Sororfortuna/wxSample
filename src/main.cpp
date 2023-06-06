@@ -83,15 +83,14 @@ void MainFrame::OnHello(wxCommandEvent& event) {
     m_canvas->SetCurrent(context);
 
     const GLubyte* version = glGetString(GL_VERSION);
-    wxString versionString;
     if (version) {
-        versionString = wxString::Format("OpenGL version: %s", version);
+        std::cout << "OpenGL version: " << version << std::endl;
     } else {
-        versionString = "Failed to retrieve OpenGL version";
+        std::cout << "Failed to retrieve OpenGL version" << std::endl;
     }
-
-    wxMessageBox(versionString, "OpenGL Version", wxOK | wxICON_INFORMATION);
 }
+
+
 void MainFrame::OnPaint(wxPaintEvent &event) {
     // Set up the OpenGL context
     wxGLContext context(m_canvas);
